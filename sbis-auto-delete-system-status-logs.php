@@ -7,13 +7,13 @@
  * Author:michelmelo
  * Author URI:https://michelmelo.pt.
  */
-
 define('SIBS_AUTODELETE_VERSION', '1.3.0');
 define('SIBS_AUTODELETE_PLUGIN_FILE', __FILE__);
 define('SIBS_AUTODELETE_PLUGIN_DIR', plugins_url('/', __FILE__));
 define('SIBS_AUTODELETE_TRANSLATE', plugins_url('/', __FILE__));
+define('SIBS_AUTODELETE_FILE', plugin_basename(__FILE__));
 
-load_plugin_textdomain(SIBS_AUTODELETE_TRANSLATE, false, dirname(plugin_basename(__FILE__)) . '/languages/');
+//$plugin = plugin_basename(__FILE__);
 
 
 add_action('admin_bar_menu', 'sibs_auto_delete_register_in_wp_admin_bar', 50);
@@ -23,7 +23,7 @@ function sibs_auto_delete_register_in_wp_admin_bar($wp_admin_bar)
         $args = [
             'id'    => 'autoDelete',
             'title' => __('Auto Delete', 'sibs-auto-delete-system-status-logs'),
-            'href'  => esc_url(site_url() . '/wp-admin/options-general.php?page=sys-autodelete-statuslogs-setting'),
+            'href'  => esc_url(site_url() . '/wp-admin/options-general.php?page=sbis-autodelete-status-logs-setting'),
         ];
         $args2 = [
             'id'    => 'sibslogs',
@@ -74,15 +74,9 @@ if (! wp_next_scheduled('sibs_auto_delete_statuslogs_add_every_twentyfour_hours'
     wp_schedule_event(time(), 'every_twentyfour_hours', 'sibs_auto_delete_statuslogs_add_every_twentyfour_hours');
 }
 
-/*
- ** calculate datetime
- * @package  Auto Delete System Status Logs
- * @since 1.1.1
-*/
 if (! function_exists('sibs_auto_delete_statuslogs_remove_files_from_dir_older_than_seven_days')) {
     function sibs_auto_delete_statuslogs_remove_files_from_dir_older_than_seven_days($dir, $seconds = 3600)
     {
-        //$files = glob(rtrim($dir, '/')."/webhooks-delivery-*");
         $files = glob(rtrim($dir, '/') . '/*.log');
         $now   = time();
         foreach ($files as $file) {
@@ -99,15 +93,13 @@ if (! function_exists('sibs_auto_delete_statuslogs_remove_files_from_dir_older_t
 
 function sibs_auto_delete_statuslogs_settings_link($links)
 {
-    $settings_link = '<a href="options-general.php?page=sys-autodelete-statuslogs-setting">' . __('Settings', 'sibs-auto-delete-system-status-logs') . '</a>';
+    $settings_link = '<a href="options-general.php?page=sbis-autodelete-status-logs-setting">' . __('Settings', 'sibs-auto-delete-system-status-logs') . '</a>';
     array_unshift($links, $settings_link);
 
     return $links;
 }
 
-$plugin = plugin_basename(__FILE__);
-
-add_filter("plugin_action_links_$plugin", 'sibs_auto_delete_statuslogs_settings_link');
+add_filter("plugin_action_links_". SIBS_AUTODELETE_FILE, 'sibs_auto_delete_statuslogs_settings_link');
 
 add_action('sibs_auto_delete_statuslogs_add_every_twentyfour_hours', 'sibs_auto_delete_statuslogs_every_twentyfour_hours_event_func');
 function sibs_auto_delete_statuslogs_every_twentyfour_hours_event_func()
@@ -143,7 +135,7 @@ function sibs_auto_delete_statuslogs_atonce()
 
 function sibs_auto_delete_statuslogs_register_options_page()
 {
-    add_options_page('Sibs Auto Delete Status Logs', 'Sibs Auto Delete Status Logs', 'manage_options', 'sys-autodelete-statuslogs-setting', 'sibs_auto_delete_statuslogs_options_page');
+    add_options_page('Sibs Auto Delete Status Logs', 'Sibs Auto Delete Status Logs', 'manage_options', 'sbis-autodelete-status-logs-setting', 'sibs_auto_delete_statuslogs_options_page');
 }
 add_action('admin_menu', 'sibs_auto_delete_statuslogs_register_options_page');
 
