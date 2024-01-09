@@ -1,0 +1,32 @@
+{
+    "name": "sibs/autodelete",
+    "type": "wordpress-plugin",
+    "homepage": "http://sibs.pt",
+    "license": "proprietary",
+    "description": "SIBS Payment Gateway for WooCommerce",
+    "keywords": ["plugin", "sibs"],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.14"
+    },
+    "archive": {
+        "exclude": [
+            ".*",
+            "!.gitignore",
+            "node_modules/",
+            "vendor/",
+            "www/",
+            "composer/",
+            "*.lst",
+            "*.zip",
+            "composer.json",
+            "composer.lock",
+            "*.yml"
+        ]
+    },
+     "minimum-stability": "stable",
+     "prefer-stable" : true
+
+}
