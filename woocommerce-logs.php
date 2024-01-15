@@ -18,6 +18,8 @@ define('WOOCOMMERCE_LOGS_FILE', plugin_basename(__FILE__));
 add_action('admin_bar_menu', 'woocommerce_logs_register_in_wp_admin_bar', 50);
 function woocommerce_logs_register_in_wp_admin_bar($wp_admin_bar)
 {
+    load_plugin_textdomain('woocommerce-logs', false, dirname(plugin_basename(__FILE__)) . '/');
+
     if (have_current_user_access_to_pexlechris_adminer()) {
         $args = [
             'id'    => 'autoDelete',

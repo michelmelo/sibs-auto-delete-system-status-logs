@@ -1,10 +1,10 @@
-=== Sibs Auto Delete System Status Logs for WooCommerce ===
+=== MM Logs for WooCommerce ===
 Contributors:michelmelo
 Tags:statuslogs, savedisk, autodelete
 Requires at least: 3.8
 Tested up to: 6.1.0
 Requires PHP: 5.6
-Stable tag: 1.3.0
+Stable tag: 2.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -32,6 +32,7 @@ It will reduce the server's disc usage.
 1.0.0  * First public release.
 1.1.0  * Clear All Button Feature added.
 1.1.1  * Remove the use of any of WooCommerce trademarks 
+2.0.0  * Update Name plugin 
 
 == Upgrade Notice == 
 1.0.0 Added plugin support
