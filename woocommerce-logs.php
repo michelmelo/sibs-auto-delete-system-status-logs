@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name: View Logs for WooCommerce
+ * Plugin Name: View and delete logs  for WooCommerce
  * Plugin URI: https://michelmelo.pt
  * Description: This plugin deletes WooCommerce status log files automatically after a time period specified by the administrator.
- * Version:2.2.1
+ * Version:2.3.0
  * Author:michelmelo
  * Author URI:https://michelmelo.pt.
  */
 defined('ABSPATH') || exit;
 
-define('WOOCOMMERCE_LOGS_VERSION', '2.2.1');
+define('WOOCOMMERCE_LOGS_VERSION', '2.3.0');
 define('WOOCOMMERCE_LOGS_PLUGIN_FILE', __FILE__);
 define('WOOCOMMERCE_LOGS_PLUGIN_DIR', plugins_url('/', __FILE__));
 define('WOOCOMMERCE_LOGS_TRANSLATE', plugins_url('/', __FILE__));
@@ -27,7 +27,7 @@ if (! class_exists('mmUpdateChecker')) {
         {
             $this->plugin_slug   = plugin_basename(__DIR__);
             $this->version       = WOOCOMMERCE_LOGS_VERSION;
-            $this->cache_key     = 'custom_upd_6';
+            $this->cache_key     = 'custom_upd_7';
             $this->cache_allowed = false;
 
             // die($this->plugin_slug);

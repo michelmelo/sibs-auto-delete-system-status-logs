@@ -1,16 +1,16 @@
 {
-	"name": "View Logs for WooCommerce",
+	"name": "View and delete logs for WooCommerce",
 	"slug": "woocommerce-logs",
 	"author": "Michel Melo",
 	"author_profile": "http://profiles.wordpress.org/michelmelo",
-	"version": "2.2.1",
-	"download_url": "https://github.com/michelmelo/woocommerce-logs/archive/refs/tags/2.2.0.zip",
+	"version": "2.3.0",
+	"download_url": "https://github.com/michelmelo/woocommerce-logs/releases/download/2.3.0/woocommerce-logs.zip",
 	"requires": "6.4",
 	"tested": "6.4",
 	"requires_php": "7.4",
-	"last_updated": "2024-01-01 09:10:00",
+	"last_updated": "2024-01-16 16:00:00",
 	"sections": {
-		"description": "View Logs for WooCommerce",
+		"description": "View and delete logs for WooCommerce",
 		"installation": "Click the activate button and that's it.",
 		"changelog": "<h4>1.0 –  november 2023</h4><ul><li>Bug fixes.</li><li>Initital release.</li></ul>"
 	},
