@@ -3,13 +3,17 @@
  * Plugin Name: View Logs for WooCommerce
  * Plugin URI: https://michelmelo.pt
  * Description: This plugin deletes WooCommerce status log files automatically after a time period specified by the administrator.
- * Version:1.0.0
+ * Version:2.2.1
  * Author:michelmelo
  * Author URI:https://michelmelo.pt.
  */
-
-
 defined('ABSPATH') || exit;
+
+define('WOOCOMMERCE_LOGS_VERSION', '2.2.1');
+define('WOOCOMMERCE_LOGS_PLUGIN_FILE', __FILE__);
+define('WOOCOMMERCE_LOGS_PLUGIN_DIR', plugins_url('/', __FILE__));
+define('WOOCOMMERCE_LOGS_TRANSLATE', plugins_url('/', __FILE__));
+define('WOOCOMMERCE_LOGS_FILE', plugin_basename(__FILE__));
 
 if (! class_exists('mmUpdateChecker')) {
     class mmUpdateChecker
@@ -22,7 +26,7 @@ if (! class_exists('mmUpdateChecker')) {
         public function __construct()
         {
             $this->plugin_slug   = plugin_basename(__DIR__);
-            $this->version       = '1.0.0';
+            $this->version       = WOOCOMMERCE_LOGS_VERSION;
             $this->cache_key     = 'custom_upd_6';
             $this->cache_allowed = false;
 
@@ -47,7 +51,7 @@ if (! class_exists('mmUpdateChecker')) {
                         ],
                     ]
                 );
-               
+
                 if (
                     is_wp_error($remote)
                     || 200 !== wp_remote_retrieve_response_code($remote)
@@ -56,7 +60,7 @@ if (! class_exists('mmUpdateChecker')) {
                     return false;
                 }
 
-                set_transient( $this->cache_key, $remote, DAY_IN_SECONDS );
+                set_transient($this->cache_key, $remote, DAY_IN_SECONDS);
             }
 
             $remote = json_decode(wp_remote_retrieve_body($remote));
@@ -75,7 +79,7 @@ if (! class_exists('mmUpdateChecker')) {
             }
 
             $remote = $this->request();
-           
+
             if (! $remote) {
                 return $res;
             }
@@ -117,6 +121,7 @@ if (! class_exists('mmUpdateChecker')) {
             }
 
             $remote = $this->request();
+
             if (
                 $remote
                 && version_compare($this->version, $remote->version, '<')
@@ -132,7 +137,7 @@ if (! class_exists('mmUpdateChecker')) {
 
                 $transient->response[$res->plugin] = $res;
             }
-           
+
             return $transient;
         }
 
@@ -151,11 +156,6 @@ if (! class_exists('mmUpdateChecker')) {
 
     new mmUpdateChecker();
 }
-define('WOOCOMMERCE_LOGS_VERSION', '2.0.0');
-define('WOOCOMMERCE_LOGS_PLUGIN_FILE', __FILE__);
-define('WOOCOMMERCE_LOGS_PLUGIN_DIR', plugins_url('/', __FILE__));
-define('WOOCOMMERCE_LOGS_TRANSLATE', plugins_url('/', __FILE__));
-define('WOOCOMMERCE_LOGS_FILE', plugin_basename(__FILE__));
 
 //$plugin = plugin_basename(__FILE__);
 

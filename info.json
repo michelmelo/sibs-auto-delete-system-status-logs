@@ -4,7 +4,7 @@
 	"author": "Michel Melo",
 	"author_profile": "http://profiles.wordpress.org/michelmelo",
 	"version": "2.2.1",
-	"download_url": "https://github.com/michelmelo/woocommerce-logs/releases/download/2.2.1/woocommerce-logs.zip",
+	"download_url": "https://github.com/michelmelo/woocommerce-logs/archive/refs/tags/2.2.0.zip",
 	"requires": "6.4",
 	"tested": "6.4",
 	"requires_php": "7.4",
