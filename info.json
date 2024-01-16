@@ -1,0 +1,21 @@
+{
+	"name": "View Logs for WooCommerce",
+	"slug": "woocommerce-logs",
+	"author": "Michel Melo",
+	"author_profile": "http://profiles.wordpress.org/michelmelo",
+	"version": "2.2.0",
+	"download_url": "https://github.com/michelmelo/woocommerce-logs/archive/refs/tags/2.2.0.zip",
+	"requires": "6.4",
+	"tested": "6.4",
+	"requires_php": "7.4",
+	"last_updated": "2024-01-01 09:10:00",
+	"sections": {
+		"description": "View Logs for WooCommerce",
+		"installation": "Click the activate button and that's it.",
+		"changelog": "<h4>1.0 –  november 2023</h4><ul><li>Bug fixes.</li><li>Initital release.</li></ul>"
+	},
+	"banners": {
+		"low": "https://raw.githubusercontent.com/michelmelo/woocommerce-logs/main/banner-772x250.jpg",
+		"high": "https://raw.githubusercontent.com/michelmelo/woocommerce-logs/main/banner-1544x500.jpg"
+	}
+}
