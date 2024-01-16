@@ -1,10 +1,10 @@
 {
-    "name": "sibs/autodelete",
+    "name": "michelmelo/woocommerce-logs",
     "type": "wordpress-plugin",
-    "homepage": "http://sibs.pt",
+    "homepage": "http://michelmelo.pt",
     "license": "proprietary",
-    "description": "SIBS Payment Gateway for WooCommerce",
-    "keywords": ["plugin", "sibs"],
+    "description": "View and delete logs  for WooCommerce",
+    "keywords": ["plugin"],
     "require": {
         "php": ">=7.4"
     },
@@ -24,6 +24,14 @@
             "composer.json",
             "composer.lock",
             "*.yml"
+        ]
+    },
+    "scripts": {
+        "archive": [
+            "@composer archive  -f zip --file woocommerce-logs"
+        ],
+        "fixer": [
+            "php-cs-fixer fix"
         ]
     },
      "minimum-stability": "stable",
