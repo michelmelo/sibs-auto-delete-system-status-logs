@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: MM Logs for WooCommerce
+ * Plugin Name: View Logs for WooCommerce
  * Plugin URI: https://michelmelo.pt
  * Description: This plugin deletes WooCommerce status log files automatically after a time period specified by the administrator.
  * Version:2.0.0
