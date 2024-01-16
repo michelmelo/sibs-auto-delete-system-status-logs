@@ -67,19 +67,15 @@ if (! class_exists('mmUpdateChecker')) {
         public function info($res, $action, $args)
         {
             if ('plugin_information' !== $action) {
-                die(var_dump($action));
-
                 return $res;
             }
 
             if ($this->plugin_slug !== $args->slug) {
-                die($this->plugin_slug);
                 return $res;
             }
 
             $remote = $this->request();
-            die(print_r($remote));
-
+           
             if (! $remote) {
                 return $res;
             }
