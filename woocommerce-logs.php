@@ -3,7 +3,7 @@
  * Plugin Name: View Logs for WooCommerce
  * Plugin URI: https://michelmelo.pt
  * Description: This plugin deletes WooCommerce status log files automatically after a time period specified by the administrator.
- * Version:2.0.0
+ * Version:1.0.0
  * Author:michelmelo
  * Author URI:https://michelmelo.pt.
  */
@@ -23,8 +23,10 @@ if (! class_exists('mmUpdateChecker')) {
         {
             $this->plugin_slug   = plugin_basename(__DIR__);
             $this->version       = '1.0.0';
-            $this->cache_key     = 'custom_upd_3';
+            $this->cache_key     = 'custom_upd_6';
             $this->cache_allowed = false;
+
+            // die($this->plugin_slug);
 
             add_filter('plugins_api', [$this, 'info'], 20, 3);
             add_filter('site_transient_update_plugins', [$this, 'update']);
@@ -37,7 +39,7 @@ if (! class_exists('mmUpdateChecker')) {
 
             if (false === $remote || ! $this->cache_allowed) {
                 $remote = wp_remote_get(
-                    'https://raw.githubusercontent.com/michelmelo/update-checwoocommerce-logsker/main/info.json',
+                    'https://raw.githubusercontent.com/michelmelo/woocommerce-logs/main/info.json',
                     [
                         'timeout' => 10,
                         'headers' => [
@@ -45,7 +47,7 @@ if (! class_exists('mmUpdateChecker')) {
                         ],
                     ]
                 );
-
+               
                 if (
                     is_wp_error($remote)
                     || 200 !== wp_remote_retrieve_response_code($remote)
@@ -65,14 +67,18 @@ if (! class_exists('mmUpdateChecker')) {
         public function info($res, $action, $args)
         {
             if ('plugin_information' !== $action) {
+                die(var_dump($action));
+
                 return $res;
             }
 
             if ($this->plugin_slug !== $args->slug) {
+                die($this->plugin_slug);
                 return $res;
             }
 
             $remote = $this->request();
+            die(print_r($remote));
 
             if (! $remote) {
                 return $res;
@@ -115,7 +121,6 @@ if (! class_exists('mmUpdateChecker')) {
             }
 
             $remote = $this->request();
-
             if (
                 $remote
                 && version_compare($this->version, $remote->version, '<')
