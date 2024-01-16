@@ -3,9 +3,10 @@
  * Plugin Name: View and delete logs  for WooCommerce
  * Plugin URI: https://michelmelo.pt
  * Description: This plugin deletes WooCommerce status log files automatically after a time period specified by the administrator.
- * Version:2.3.0
- * Author:michelmelo
- * Author URI:https://michelmelo.pt.
+ * Version: 2.3.0
+ * Author URI: https://michelmelo.pt
+ * Text Domain: woocommerce-logs
+ * Author: michelmelo.
  */
 defined('ABSPATH') || exit;
 
