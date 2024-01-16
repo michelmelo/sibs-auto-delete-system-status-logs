@@ -28,13 +28,13 @@
     },
     "scripts": {
         "archive": [
-            "@composer archive  -f zip --file woocommerce-logs"
+            "@composer archive -f zip --file woocommerce-logs"
         ],
         "fixer": [
             "php-cs-fixer fix"
         ]
     },
-     "minimum-stability": "stable",
-     "prefer-stable" : true
+    "minimum-stability": "stable",
+    "prefer-stable": true
 
 }
